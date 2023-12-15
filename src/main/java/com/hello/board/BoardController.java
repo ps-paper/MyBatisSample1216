@@ -40,7 +40,7 @@ public class BoardController {
 
     @RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
     public String editPost(@PathVariable("id") int id, Model model){
-        BoardVO boardVO = boardService.getBoardList().get(id);
+        BoardVO boardVO = boardService.getBoard(id);
         model.addAttribute("u",boardVO);
         return "editform";
     }
@@ -65,7 +65,7 @@ public class BoardController {
 
     @RequestMapping(value = "/listview/{seq}", method = RequestMethod.GET)
     public String listView(@PathVariable("seq") int seq, Model model){
-        BoardVO boardVO = boardService.getBoardList().get(seq);
+        BoardVO boardVO = boardService.getBoard(seq);
         model.addAttribute("one",boardVO);
 
 

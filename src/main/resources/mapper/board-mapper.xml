@@ -22,6 +22,6 @@
         ]]>
     </select>
     <select id="getBoardList" resultType="board">
-        select * from BOARD order by seq desc
+        select * from BOARD order by seq asc
     </select>
 </mapper>

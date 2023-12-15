@@ -1,5 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: 박민준
@@ -8,9 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <?xml version="1.0" encoding="UTF-8"?>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.hello.board.BoardVO, com.hello.board.BoardDAO"%>
-<%@ page import="com.hello.board.BoardController"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 
 <head>
@@ -19,10 +19,8 @@
 <body>
 
 
-
-<%--@elvariable id="boardVO" type="com.hello.board.BoardController, "--%>
-<form:form modelAttribute="boardVO" method="POST" action="../editok">
-    <form:hidden path="seq" />
+<form:form modelAttribute="u" method="POST" action="../editok">
+    <form:hidden path="seq"/>
     <table id = "edit">
             <tr><td>카테고리</td><td><form:input path="category" /></td></tr>
             <tr><td>제목</td><td><form:input path="title" /></td></tr>
