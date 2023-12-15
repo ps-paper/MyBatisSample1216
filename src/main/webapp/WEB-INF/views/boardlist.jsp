@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 박민준
-  Date: 2023-12-01
-  Time: 오전 10:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -14,7 +7,52 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-    <title>Title</title>
+    <title>My Plan</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .main-title {
+            margin-left: 20px;
+            text-align: center;
+            color: #a5d8ff;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .add-post-link {
+            margin-right: 20px;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #f783ac;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .table-responsive {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .table .btn {
+            color: white;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+        .table .btn-edit { background-color: #74c0fc; }
+        .table .btn-delete { background-color: #f06595; }
+        .table .btn-view { background-color: #ced4da; }
+        .table tr:nth-child(odd) { background-color: #e9ecef; }
+        .table tr:nth-child(even) { background-color: #dee2e6; }
+    </style>
     <script>
         function delete_ok(id){
             var a = confirm("정말로 삭제하시겠습니까?");
@@ -23,7 +61,10 @@
     </script>
 </head>
 <body>
-<h2>Section title</h2>
+<div class="header">
+    <div class="main-title">My Plan</div>
+    <a href="../add" class="add-post-link">Add new post</a>
+</div>
 <div class="table-responsive small">
     <table class="table table-striped table-sm">
         <tr>
@@ -39,24 +80,20 @@
             <th>View</th>
         </tr>
         <c:forEach items="${list}" var="one"  >
-        <tr>
-            <td>${one.seq}</td>
-            <td>${one.title}</td>
-            <td>${one.writer}</td>
-            <td>${one.category}</td>
-            <td>${one.content}</td>
-            <td>${one.regdate}</td>
-            <td>${one.moddate}</td>
-            <td><a href="../editform/${one.seq}">수정하기</a></td>
-            <td><a href="javascript:delete_ok('${one.seq}')">삭제하기</a></td>
-            <td><a href="../listview/${one.seq}">자세히보기</a></td>
-        </tr>
-
+            <tr>
+                <td>${one.seq}</td>
+                <td>${one.title}</td>
+                <td>${one.writer}</td>
+                <td>${one.category}</td>
+                <td>${one.content}</td>
+                <td>${one.regdate}</td>
+                <td>${one.moddate}</td>
+                <td><a href="../editform/${one.seq}" class="btn btn-edit">수정하기</a></td>
+                <td><a href="javascript:delete_ok('${one.seq}')" class="btn btn-delete">삭제하기</a></td>
+                <td><a href="../listview/${one.seq}" class="btn btn-view">자세히보기</a></td>
+            </tr>
         </c:forEach>
     </table>
-
-    <br><a href="../add">Add new post</a>
-
 </div>
 </body>
 </html>

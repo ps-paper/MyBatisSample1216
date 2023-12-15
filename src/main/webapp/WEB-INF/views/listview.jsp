@@ -1,14 +1,14 @@
-<%-- Created by IntelliJ IDEA. User: 박민준 Date: 2023-12-02 Time: 오후 8:03 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Title</title>
+  <title>목록!</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #f8f9fa;
       color: #333;
     }
     .table-responsive {
@@ -27,15 +27,24 @@
       text-align: left;
     }
     th {
-      background-color: #f8f8f8;
+      background-color: #a5d8ff;
     }
     a {
-      color: #0275d8;
+      color: #f783ac;
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
+    .btn-edit, .btn-delete {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+    }
+    .btn-edit { background-color: #74c0fc; }
+    .btn-delete { background-color: #f06595; }
     @media screen and (max-width: 600px) {
       .table-responsive {
         padding: 5px;
@@ -49,6 +58,7 @@
 <body>
 <div class="table-responsive small">
   <table class="table table-striped table-sm">
+    <thead>
     <thead>
     <tr>
       <th>Seq</th>
@@ -72,8 +82,8 @@
         <td>${one.content}</td>
         <td>${one.regdate}</td>
         <td>${one.moddate}</td>
-        <td><a href="../editform/${one.seq}">Edit</a></td>
-        <td><a href="javascript:delete_ok('${one.seq}')">Delete</a></td>
+        <td><a href="../editform/${one.seq}" class="btn-edit">Edit</a></td>
+        <td><a href="javascript:delete_ok('${one.seq}')" class="btn-delete">Delete</a></td>
       </tr>
     </c:forEach>
     </tbody>
