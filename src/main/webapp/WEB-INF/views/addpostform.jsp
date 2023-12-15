@@ -39,15 +39,15 @@
 <body>
 <form action="addok" method="post" class="m-4">
     <div class="form-group">
-        <label for="category">카테고리</label>
+        <label for="category">관련 인원</label>
         <input type="text" class="form-control" name="category" id="category">
     </div>
     <div class="form-group">
-        <label for="title">제목</label>
+        <label for="title">카테고리</label>
         <input type="text" class="form-control" name="title" id="title">
     </div>
     <div class="form-group">
-        <label for="writer">글쓴이</label>
+        <label for="writer">제목</label>
         <input type="text" class="form-control" name="writer" id="writer">
     </div>
     <div class="form-group">
